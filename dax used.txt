@@ -1,0 +1,45 @@
+Total Sales =
+SUM(Retail_Transactions[Net_Sales])
+
+Total Transactions =
+DISTINCTCOUNT(Retail_Transactions[Transaction_ID])
+
+Total Quantity =
+SUM(Retail_Transactions[Quantity])
+
+
+Average Transaction Value =
+DIVIDE(
+    [Total Sales],
+    [Total Transactions]
+)
+
+Total Orders =
+DISTINCTCOUNT(Orders[Order_ID])
+
+Total Returns =
+DISTINCTCOUNT(Returns[Return_ID])
+
+Total Refund Amount =
+SUM(Returns[Refund_Amount])
+
+Return Rate % =
+DIVIDE(
+    [Total Returns],
+    [Total Transactions],
+    0
+)
+
+Target Sales =
+SUM(Sales_Targets[Target_Sales])
+
+
+Sales Variance =
+[Actual Sales] - [Target Sales]
+
+Target Achievement % =
+DIVIDE(
+    [Actual Sales],
+    [Target Sales],
+    0
+)
